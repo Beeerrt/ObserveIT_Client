@@ -15,7 +15,7 @@ export class InfounitService {
 
   //get latest Unit by ID
   getUnitById(id){
-    return this.http.get(this.url + '/filterunit/' + id).map((res : Response) => res.json());
+    return this.http.get(this.url + '/filterunit/node' + id).map((res : Response) => res.json());
   }
 
 }

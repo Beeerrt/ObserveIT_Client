@@ -13,19 +13,19 @@
 <div class="row mx-auto">
   <div class="col">
       <div class="card">
-          <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+          <circle-progress [percent]="infounit.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
           [innerStrokeColor]="'#F78181'"></circle-progress>
       </div>
   </div>
   <div class="col">
       <div class="card">
-          <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+          <circle-progress [percent]="infounit.incline" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'incline'" [outerStrokeColor]="'#FF4000'"
           [innerStrokeColor]="'#F78181'"></circle-progress>
       </div>
   </div>
   <div class="col">
     <div class="card">
-      <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+      <circle-progress [percent]="infounit.humidity" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'humidity'" [outerStrokeColor]="'#FF4000'"
       [innerStrokeColor]="'#F78181'"></circle-progress>
   </div>
   </div>

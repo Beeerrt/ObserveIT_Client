@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import {Router,ActivatedRoute, ParamMap } from '@angular/router';
 import {InfounitService} from '../../../../services/infounit.service'
+import { infounit } from '../../../../class/infounit';
 
 @Component({
   selector: 'app-detail',
@@ -10,6 +11,10 @@ import {InfounitService} from '../../../../services/infounit.service'
 })
 export class DetailComponent implements OnInit {
 
+  //Infounit
+  infounit : infounit;
+
+  //Testdata
   radius = 100;
   colorCool = '#848484';
   innerStrokeColor = '#848484';
@@ -26,18 +31,13 @@ export class DetailComponent implements OnInit {
   data :any;
   ngOnInit() {
     this.route.params.subscribe(params => {
-      //to Do
       //laden der daten der Infounit anhand der nodeID
       var nodeid = params.id;
       console.log(nodeid);
       var nodeinfo = this.infounitService.getUnitById(nodeid).subscribe(data => { 
-         var  id = data.nodeid;
-         var  temp = data.temperatur;
-         console.log(temp);
+        this.infounit = data; 
       });
        
-      //id der Node die über die Route mitgegeben wurde
-      //alert(params.id);
     })
     
   }

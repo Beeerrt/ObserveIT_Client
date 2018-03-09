@@ -8,14 +8,15 @@ export class infounit{
     positon: String;
     
     constructor(nodeid?: Number, date?: Date, temperatur?: String,
-        incline?: String, humidity?: boolean, brightness?:String,positon?:String){
+        incline?: String, humidity?: String, brightness?:String,positon?:String){
 
-        // this.nodeid = nodeid  || "";
-        // this.date = date || "";
-        // this.email = email|| "";
-        // this.password = password || "";
-        // this.isAdmin = isAdmin;
-        // this.telegramid = telegramid || "";
-        
+        this.nodeid = nodeid;
+        this.date = date;
+        this.temperatur = temperatur;
+        this.incline = incline;
+        this.humidity = humidity;
+        this.brightness = brightness;
+        this.positon = positon || "N/A";
+
     }
 }
