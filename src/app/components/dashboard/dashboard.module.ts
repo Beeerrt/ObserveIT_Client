@@ -9,7 +9,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { DashboardComponent} from '../dashboard/dashboard.component';
 import { SensordisplayComponent} from './components/detail/sensordisplay/sensordisplay.component';
 import { TestComponent } from './components/detail/test/test.component';
-import { NodeSettingComponent } from './components/node-setting/node-setting.component';
+//import { NodeSettingComponent } from './components/node-setting/node-setting.component';
  
 @NgModule({
   imports: [
@@ -24,7 +24,6 @@ import { NodeSettingComponent } from './components/node-setting/node-setting.com
       DetailComponent,
       SensordisplayComponent,
       TestComponent,
-      NodeSettingComponent
   ],
   providers: [ ]
 })

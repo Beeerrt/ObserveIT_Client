@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import {NodeSettingComponent} from './components/node-setting/node-setting.component'
 
 import { AlterComponent } from './components/profile/alter/alter.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
     {path:'profile/alter', component: AlterComponent, canActivate:[AuthGuard]},
+    {path: 'setting', component: NodeSettingComponent, canActivate:[AuthGuard,OnlyAdminGuard]},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: '**', redirectTo: '/dashboard' }
  

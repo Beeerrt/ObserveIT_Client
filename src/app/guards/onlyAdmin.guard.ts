@@ -22,7 +22,7 @@ export class OnlyAdminGuard implements CanActivate {
     } else {
       console.log("Ist kein Admin")
       
-      this.flashMessage.show('Sie besitzen keine Berechtigung um neue User anzulegen', {cssClass: 'alert-danger', timout: 5000});
+      this.flashMessage.show('Sie besitzen keine Berechtigung um diese Route aufzurufen', {cssClass: 'alert-danger', timout: 5000});
       this.router.navigate(['/home']);
       return false;
     }

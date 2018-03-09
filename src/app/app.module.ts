@@ -23,13 +23,14 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import {ShareDataService  } from './services/share-data.service';
+import {InfounitService} from './services/infounit.service';
 import { ValuepanelComponent } from './components/dashboard/components/valuepanel/valuepanel.component';
 import { AuthGuard} from './guards/auth.guard';
 import { OnlyAdminGuard } from './guards/onlyAdmin.guard';
 import { DetailComponent } from './components/dashboard/components/detail/detail.component';
 import { SensordisplayComponent } from './components/dashboard/components/detail/sensordisplay/sensordisplay.component';
 import { AlterComponent } from './components/profile/alter/alter.component';
-
+import {NodeSettingComponent} from './components/node-setting/node-setting.component'
 
 
 
@@ -40,6 +41,7 @@ import { AlterComponent } from './components/profile/alter/alter.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    NodeSettingComponent
 
   ],
   imports: [
@@ -65,7 +67,8 @@ import { AlterComponent } from './components/profile/alter/alter.component';
     AuthService,
     AuthGuard,
     ShareDataService,
-    OnlyAdminGuard
+    OnlyAdminGuard,
+    InfounitService
   ],
   bootstrap: [AppComponent]
 })

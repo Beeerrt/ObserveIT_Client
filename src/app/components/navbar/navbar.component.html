@@ -15,6 +15,9 @@
         <li *ngIf="authService.loggedIn()" class="nav-item ">
           <a class="nav-link" [routerLink]="['/dashboard']"><i class="fas fa-tachometer-alt fa-lg"></i><span class="badge badge-pill badge-danger"></span></a>
         </li>
+        <li *ngIf="isAdmin()" class="nav-item ">
+          <a class="nav-link" [routerLink]="['/setting']"><i class="fas fa-cog fa-lg"></i><span class="badge badge-pill badge-danger"></span></a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
