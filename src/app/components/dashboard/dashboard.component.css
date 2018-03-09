@@ -1,0 +1,17 @@
+.container {
+    width: 385px;
+    height: 226px;
+    /* margin: 25px auto; */
+  }
+
+  .avatar
+  {
+    width: 120px;
+    height: 120px;
+  }
+
+  .tempcard
+  {
+    width: 350px;
+  }
+

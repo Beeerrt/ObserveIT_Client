@@ -1,0 +1,11 @@
+.avatar
+{
+  width: 120px;
+  height: 120px;
+}
+
+.card
+{
+  margin-bottom: 1.5rem;
+  max-width: 240px;
+}

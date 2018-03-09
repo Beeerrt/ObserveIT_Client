@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="mx-auto">
+    <img class="avatar" alt="" src="../../../assets/dashboard/dashboard.png">
+
+  </div>
+
+</div>
+<div class="text-center">
+  <h2 class="page-header">Dashboard</h2>
+</div>
+
+<hr>
+
+<div class="row mx-auto">
+  
+    <div *ngFor="let node of nodes" class="col  text-center">
+      <app-valuepanel [node]="node"></app-valuepanel>
+    </div>
+</div>
+

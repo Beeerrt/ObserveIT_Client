@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="mx-auto">
+    <img class="avatar" alt="" src="../../../assets/dashboard/detail/eye.png">
+  </div>
+</div>
+<div class="text-center">
+  <h2 class="page-header">Detail</h2>
+</div>
+<div class="row">
+  <button style="width: 100%;" [routerLink]="['/dashboard']" type="button" class="btn btn-raised  btn-info">Zurück</button>
+</div>
+<hr>
+<div class="row mx-auto">
+  <div class="col">
+      <div class="card">
+          <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+          [innerStrokeColor]="'#F78181'"></circle-progress>
+      </div>
+  </div>
+  <div class="col">
+      <div class="card">
+          <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+          [innerStrokeColor]="'#F78181'"></circle-progress>
+      </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
+      [innerStrokeColor]="'#F78181'"></circle-progress>
+  </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#000000'"
+      [innerStrokeColor]="'#2ECCFA'"[showSubtitle]='false' [innerStrokeColor]='black'></circle-progress>
+  </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col">
+    <div class="card">
+        <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="colorCool"
+        [innerStrokeColor]="'#2ECCFA'" [showSubtitle]='false'></circle-progress>
+    </div>
+  </div>
+  <div class="col">
+    <input id="slider1" type="range" min="0" max="100" step="1" [(ngModel)]="value" />
+    <app-test [position]="value"></app-test>
+  </div>
+  <div class="col">
+  </div>
+  <div class="col">
+
+  </div>
+
+</div>

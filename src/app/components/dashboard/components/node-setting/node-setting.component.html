@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="mx-auto">
+      <i class="avatar fas fa-cog fa-lg"></i>
+  </div>
+</div>
+<div class="text-center">
+    <h2 class="page-header">Node Einstellungen</h2>
+  </div>
+  <div class="row">
+    <button style="width: 100%;" [routerLink]="['/dashboard']" type="button" class="btn btn-raised  btn-info">Zurück</button>
+  </div>
+  <hr>
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Alarmeinstellungen ändern</h1>
+    <p>Hier können Sie die Benachrichtungen an und ausschalten sowie die Parameter ändern die für eine Benachrichtung
+        erreicht werden müssen.
+     </p>
+      <div class="row">
+          <div class="col">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="tableleft" scope="col">Parameter</th>
+                      <th class="tableright" scope="col">Wert</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tableleft">Addresse Datenbank</td>
+                      <td class="tableright"><input type="text"></td>
+                    </tr>
+                    <tr>
+                      <td class="tableleft">Temperatur Max</td>
+                      <td class="tableright"><input type="text"></td>
+                    </tr>
+                    <tr>
+                      <td class="tableleft">Temperatur Min</td>
+                      <td class="tableright"><input type="text"></td>
+                    </tr>
+                    <tr>
+                      <td class="tableleft">Luftfeuchtigkeit Max</td>
+                      <td class="tableright"><input type="text"></td>
+                    </tr>
+                    <tr>
+                      <td class="tableleft">Luftfeuchtigkeit Min</td>
+                      <td class="tableright"><input type="text"></td>
+                    </tr>
+                  </tbody>
+                </table>       
+                <!-- <button type="button" class="btn btn-outline-success btn-lg btn-block">Speichern</button>     -->
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="card-title">Telegram</h1>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th class="tableleft" scope="col">Parameter</th>
+                        <th class="tableright" scope="col">Wert</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tableleft">Telegram ID</td>
+                        <td class="tableright"><input type="text"></td>
+                      </tr>
+                      <tr>
+                        <td class="tableleft">Benachrichtung</td>
+                        <td class="tableright">
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                          <input type="checkbox" checked autocomplete="off"> Senden
+                                </label>
+                            </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>       
+                  <button type="button" class="btn btn-outline-success btn-lg btn-block">Speichern</button>    
+            </div>
+          </div>  
+        
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../../favicon.ico"></a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/home']"><i class="fas fa-home fa-lg"></i></a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item ">
+            <a class="nav-link" [routerLink]="['/profile']"><i class="fas fa-user-circle fa-lg"></i></a>
+          </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item ">
+          <a class="nav-link" [routerLink]="['/dashboard']"><i class="fas fa-tachometer-alt fa-lg"></i><span class="badge badge-pill badge-danger"></span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+         <li *ngIf="!authService.loggedIn()" class="nav-item">
+            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item">
+          <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onLogoutClick()"><i class="fas fa-sign-out-alt"></i> Abemelden</button>
+      </li>
+        <li *ngIf="isAdmin()" class="nav-item">
+            <button class="btn btn-outline-info my-2 my-sm-0" [routerLink]="['/register']"><i class="fas fa-flag-checkered"></i> Registrieren</button>
+        </li>
+      </ul>
+      </form>
+    </div>
+  </nav>
