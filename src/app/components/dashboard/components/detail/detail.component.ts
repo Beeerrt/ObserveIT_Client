@@ -11,7 +11,7 @@ import { infounit } from '../../../../class/infounit';
 })
 export class DetailComponent implements OnInit {
 
-  //Infounit
+  //Infounit deklarieren
   infounit : infounit;
 
   //Testdata
@@ -33,8 +33,7 @@ export class DetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       //laden der daten der Infounit anhand der nodeID
       var nodeid = params.id;
-      console.log(nodeid);
-      var nodeinfo = this.infounitService.getUnitById(nodeid).subscribe(data => { 
+      this.infounitService.getUnitById(nodeid).subscribe(data => { 
         this.infounit = data; 
       });
        

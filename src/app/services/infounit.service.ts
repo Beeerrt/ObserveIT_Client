@@ -18,4 +18,20 @@ export class InfounitService {
     return this.http.get(this.url + '/filterunit/node' + id).map((res : Response) => res.json());
   }
 
+  getLatestUnits()
+  {
+    var nodeids;
+    console.log("getNodewird aufgerufen");
+    this.getNodeIds().subscribe(data => {
+      nodeids = data;
+    });
+    return nodeids;
+  }
+
+  //liefert die Node ID's aus der DB zurück
+  getNodeIds()
+  {
+    console.log(this.url + '/filterunit/count');
+    return this.http.get(this.url + '/filterunit/count').map((res : Response) => res.json());
+  }
 }
