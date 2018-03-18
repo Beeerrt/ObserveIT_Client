@@ -6,6 +6,7 @@ export class user{
     isAdmin: boolean;
     telegramid: String;
     
+
     constructor(name?: String, username?: String, email?: String,
     password?: String, isAdmin?: boolean, telegramid?:String){
 

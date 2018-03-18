@@ -3,6 +3,7 @@ import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {user} from '../../../class/user';
+import { Profile } from 'selenium-webdriver/firefox';
 
 
 
@@ -13,12 +14,8 @@ import {user} from '../../../class/user';
 })
 export class AlterComponent implements OnInit {
 
-    user: {
-     name: null,
-     username: null,
-     email: null
-     password: null
-   };
+    currentUserName: any;
+    newUser :user;
 
 
 
@@ -40,9 +37,11 @@ export class AlterComponent implements OnInit {
   ngOnInit() {
     //Userdaten abfragen
     this.authService.getProfile().subscribe(profile => {
-      console.log("User wird abgerufen");
-      this.user = profile.user;
-      console.log(this.user);
+      //console.log("User wird abgerufen");
+      this.currentUserName = profile.user;
+      this.newUser = profile.user;
+        console.log(this.currentUserName);
+      // console.log(this.newUser);
       },
     err => {
     return false;
@@ -54,10 +53,20 @@ export class AlterComponent implements OnInit {
 //speichern der Userdaten
 saveUserdata()
 {
+  console.log("neuer username : "+ this.newUser.username);
+  console.log("alter username : " + this.currentUserName.username);
 
-  console.log(this.user.name);
 
+  // console.log(this.user.name);
+  // var users = [];
+  // users.push(this.user);
+  
+
+ // console.log(users);
+
+  //this.authService.setProfile();
   this.flashMessage.show("Userdaten erfolgreich geändert.", {cssClass: 'alert-success', timeout: 5000});
+  //this.router.navigate(['/profile']);
 
   //console.log("wurde aufgerufen");
   //prüfen ob Userdaten geändert wurden

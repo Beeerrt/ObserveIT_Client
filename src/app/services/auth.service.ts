@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   //Userdaten in der API ändern
-  setProfile(user)
+  setProfile(users)
   {
     let headers = new Headers();
     this.loadToken();
