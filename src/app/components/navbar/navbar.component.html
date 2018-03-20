@@ -25,7 +25,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']"><i class="fas fa-sign-in-alt"></i> Login</button>
         </li>
         <li *ngIf="authService.loggedIn()" class="nav-item">
-          <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onLogoutClick()"><i class="fas fa-sign-out-alt"></i> Abemelden</button>
+          <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onLogoutClick()"><i class="fas fa-sign-out-alt"></i> Abmelden</button>
       </li>
         <li *ngIf="isAdmin()" class="nav-item">
             <button class="btn btn-outline-info my-2 my-sm-0" [routerLink]="['/register']"><i class="fas fa-flag-checkered"></i> Registrieren</button>

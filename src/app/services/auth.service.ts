@@ -11,6 +11,7 @@ export class AuthService {
     authToken: any;
     user: user;
     url: String = "http://localhost:4000";
+    
 
 
   constructor(private http: Http) {}

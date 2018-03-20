@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router,ActivatedRoute, ParamMap } from '@angular/router';
+import { LimitService } from '../../services/limit.service';
+import {limits} from '../../class/limit';
 
 @Component({
   selector: 'app-node-setting',
@@ -8,22 +10,24 @@ import {Router,ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class NodeSettingComponent implements OnInit {
 
+
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private limitService : LimitService,
   ) { }
 
 
 
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+
       //to Do
-      //laden der daten der Infounit anhand der nodeID
-      
-      //id der Node die über die Route mitgegeben wurde
-      //alert(params.id);
-    })
+      // //laden der Limits
+      this.limitService.getLimits().subscribe(limits => {
+        console.log(limits);
+      });
   }
 
 }
