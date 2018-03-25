@@ -25,6 +25,7 @@ import { AuthService } from './services/auth.service';
 import {ShareDataService  } from './services/share-data.service';
 import {InfounitService} from './services/infounit.service';
 import {LimitService} from './services/limit.service';
+import {TelegramService} from './services/telegram.service';
 import { ValuepanelComponent } from './components/dashboard/components/valuepanel/valuepanel.component';
 import { AuthGuard} from './guards/auth.guard';
 import { OnlyAdminGuard } from './guards/onlyAdmin.guard';
@@ -70,7 +71,8 @@ import {NodeSettingComponent} from './components/node-setting/node-setting.compo
     ShareDataService,
     OnlyAdminGuard,
     InfounitService,
-    LimitService
+    LimitService,
+    TelegramService
   ],
   bootstrap: [AppComponent]
 })

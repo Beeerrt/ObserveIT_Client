@@ -7,10 +7,10 @@ import {user} from '../class/user';
 @Injectable()
 export class AuthService {
     
-    //url: 'http://localhost:4000';
+    url: String =  'http://localhost:4000';
     authToken: any;
-    user: user;
-    url: String = "http://localhost:4000";
+    user: any;
+    //url: String = "http://192.168.178.45:4000";
     
 
 
@@ -36,14 +36,17 @@ export class AuthService {
   }
 
   //Userdaten in der API ändern
-  setProfile(users)
+  setProfile(currentUser,newUser)
   {
+    
+    var users = [currentUser,newUser];
+    console.log("setProfile");
+    console.log(users);
     let headers = new Headers();
     this.loadToken();
     headers.append('Authorization', this.authToken );
-    headers.append('Content-Type', 'application/json');
-
-    return this.http.post(this.url + '/users/profile', user,{headers: headers}).map(res => res.json());
+    headers.append('Content-Type', 'application/json');;
+    return this.http.put(this.url + '/users/profile',users,{headers: headers}).map(res => res.json());
   }
 
 

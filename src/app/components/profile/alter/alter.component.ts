@@ -14,12 +14,9 @@ import { Profile } from 'selenium-webdriver/firefox';
 })
 export class AlterComponent implements OnInit {
 
-    currentUserName: any;
-    newUser :user;
-
-
-
-    
+    currentUser: user;
+    newUser : user;
+    newUserPassword: String;
 
     //Deklaration für die Dynamische verwendung der Prograssbar Klasse
     // progressbarClass;
@@ -37,11 +34,9 @@ export class AlterComponent implements OnInit {
   ngOnInit() {
     //Userdaten abfragen
     this.authService.getProfile().subscribe(profile => {
-      //console.log("User wird abgerufen");
-      this.currentUserName = profile.user;
       this.newUser = profile.user;
-        console.log(this.currentUserName);
-      // console.log(this.newUser);
+      this.currentUser = Object.assign({}, this.newUser);;
+      this.newUserPassword = '*************';
       },
     err => {
     return false;
@@ -53,37 +48,22 @@ export class AlterComponent implements OnInit {
 //speichern der Userdaten
 saveUserdata()
 {
-  console.log("neuer username : "+ this.newUser.username);
-  console.log("alter username : " + this.currentUserName.username);
-
-
-  // console.log(this.user.name);
-  // var users = [];
-  // users.push(this.user);
+  //prüfen ob Password sich geändert hat
+  if(this.newUserPassword != '*************')
+  {
+    console.log("neues Password eintragen:"  + this.newUserPassword);
+    this.newUser.password = this.newUserPassword;
+  }
+ 
+  this.authService.setProfile(this.currentUser,this.newUser).subscribe(profile =>{
+    console.log(profile);
+    this.flashMessage.show("Userdaten erfolgreich geändert.", {cssClass: 'alert-success', timeout: 5000});
+    this.router.navigate(['profile']);
+  },
+  err =>{
+    this.flashMessage.show("Userdaten konnte nicht geändert werden.", {cssClass: 'alert-warning', timeout: 5000});
+  });
   
-
- // console.log(users);
-
-  //this.authService.setProfile();
-  this.flashMessage.show("Userdaten erfolgreich geändert.", {cssClass: 'alert-success', timeout: 5000});
-  //this.router.navigate(['/profile']);
-
-  //console.log("wurde aufgerufen");
-  //prüfen ob Userdaten geändert wurden
-  // console.log(this.changedUser)
-  // if(this.changedUser.password == this.user.password)
-  // {
-   
-   
-  // }
-  // else if(this.changedUser.password != this.user.password )
-  // {
-  //   this.flashMessage.show('Benutzerdaten erfolgreich gespeichert',{cssClass: 'alert-success', timeout: 6000});
-  // }
-  
-
-  
-
 }
 
 // checkPasswordStrength() {

@@ -28,14 +28,14 @@
                             </div>
                             <div class="form-group">
                                     <label>Passwort</label>
-                                    <input class="form-control" type="password"  [(ngModel)]="newUser.password" value="*************">
+                                    <input class="form-control" type="password"  [(ngModel)]="newUserPassword" placeholder="*************">
                                     <!-- <app-passwordstrength></app-passwordstrength> -->
                                     <small id="password" class="form-text text-muted">Ihr Passwort wird verschlüsselt gespeichert.</small>
                             </div>
                             <hr>
                             <div class="form-group">
-                                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Speichern</button>
-                                <button [routerLink]="['/profile']" class="btn btn-danger btn-lg btn-block">Abbrechen</button>
+                                <button type="button" class="btn btn-success btn-raised btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Speichern</button>
+                                <button [routerLink]="['/profile']" class="btn btn-danger btn-raised btn-lg btn-block">Abbrechen</button>
                                 <!-- <button  (click)="saveUserdata()" class="btn btn-success btn-lg btn-block">Speichern</button> -->
                             </div>
                         </div>
@@ -59,8 +59,8 @@
           Sind Sie sicher das Sie die Änderungen übernehmen wollen?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
-          <button type="button"   (click)="saveUserdata()" class="btn btn-success" data-dismiss="modal">Speichern</button>
+          <button type="button" class="btn btn-raised btn-secondary" data-dismiss="modal">Abbrechen</button>
+          <button type="button"   (click)="saveUserdata()" class="btn btn-raised btn-success" data-dismiss="modal">Speichern</button>
         </div>
       </div>
     </div>

@@ -17,10 +17,8 @@ export class LimitService {
     return this.http.get(this.url + '/limit').map((res:Response) => res.json());
   }
 
-    // //get latest Unit by ID
-    // getUnitById(id){
-    //   return this.http.get(this.url + '/filterunit/node' + id).map((res : Response) => res.json());
-    // }
-  
+  setLimits(limits){
+    return this.http.post(this.url + '/limit',limits).map((res:Response) => res.json());
+  }
 
 }

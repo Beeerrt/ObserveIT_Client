@@ -1,86 +1,157 @@
 <div class="row">
   <div class="mx-auto">
-      <i class="avatar fas fa-cog fa-lg"></i>
+    <i class="avatar fas fa-cog fa-lg"></i>
   </div>
 </div>
 <div class="text-center">
-    <h2 class="page-header">Node Einstellungen</h2>
-  </div>
-  <div class="row">
-    <button style="width: 100%;" [routerLink]="['/dashboard']" type="button" class="btn btn-raised  btn-info">Zurück</button>
-  </div>
-  <hr>
+  <h2 class="page-header">Node Einstellungen</h2>
+</div>
+<div class="row">
+  <button style="width: 100%;" [routerLink]="['/dashboard']" type="button" class="btn btn-raised  btn-info">Zurück</button>
+</div>
+<hr>
 <div class="card">
   <div class="card-body">
     <h1 class="card-title">Alarmeinstellungen ändern</h1>
-    <p>Hier können Sie die Benachrichtungen an und ausschalten sowie die Parameter ändern die für eine Benachrichtung
-        erreicht werden müssen.
-     </p>
-      <div class="row">
-          <div class="col">
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th class="tableleft" scope="col">Parameter</th>
-                      <th class="tableright" scope="col">Wert</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="tableleft">Addresse Datenbank</td>
-                      <td class="tableright"><input type="text"></td>
-                    </tr>
-                    <tr>
-                      <td class="tableleft">Temperatur Max</td>
-                      <td class="tableright"><input type="text"></td>
-                    </tr>
-                    <tr>
-                      <td class="tableleft">Temperatur Min</td>
-                      <td class="tableright"><input type="text"></td>
-                    </tr>
-                    <tr>
-                      <td class="tableleft">Luftfeuchtigkeit Max</td>
-                      <td class="tableright"><input type="text"></td>
-                    </tr>
-                    <tr>
-                      <td class="tableleft">Luftfeuchtigkeit Min</td>
-                      <td class="tableright"><input type="text"></td>
-                    </tr>
-                  </tbody>
-                </table>       
-                <!-- <button type="button" class="btn btn-outline-success btn-lg btn-block">Speichern</button>     -->
-          </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h1 class="card-title">Telegram</h1>
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th class="tableleft" scope="col">Parameter</th>
-                        <th class="tableright" scope="col">Wert</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="tableleft">Telegram ID</td>
-                        <td class="tableright"><input type="text"></td>
-                      </tr>
-                      <tr>
-                        <td class="tableleft">Benachrichtung</td>
-                        <td class="tableright">
-                            <div class="btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-primary active">
-                          <input type="checkbox" checked autocomplete="off"> Senden
-                                </label>
-                            </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>       
-                  <button type="button" class="btn btn-outline-success btn-lg btn-block">Speichern</button>    
-            </div>
-          </div>  
-        
+    <p>Hier können Sie die Benachrichtungen an und ausschalten sowie die Parameter ändern die für eine Benachrichtung erreicht
+      werden müssen.
+    </p>
+    <div class="row">
+      <div class="col">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th class="tableleft" scope="col">Parameter</th>
+              <th class="tableright" scope="col">Wert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tableleft">Temperatur Max</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.maxTemperatur" value="{{limits?.maxTemperatur}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Temperatur Min</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.minTemperatur" value="{{limits?.minTemperatur}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Luftfeuchtigkeit Max</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.minHumidity" value="{{limits?.minHumidity}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Luftfeuchtigkeit Min</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.minHumidity" value="{{limits?.minHumidity}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Helligkeit Max</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.maxBrightness" value="{{limits?.maxBrightness}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Helligkeit Min</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.minBrightness" value="{{limits?.minBrightness}}">
+              </td>
+            </tr>
+            <tr>
+              <td class="tableleft">Neigungswinkel AVG</td>
+              <td class="tableright">
+                <input type="text" [(ngModel)]="limits.avgIncline" value="{{limits?.avgIncline}}">
+              </td>
+            </tr>
+            <!-- <tr>
+                          <td class="tableleft">Neigungswinkel Min</td>
+                          <td class="tableright"><input type="text" value="{{limits?.minIncline}}"></td>
+                        </tr> -->
+          </tbody>
+        </table>
+        <button type="button" (click)="saveLimits()" class="btn btn-raised btn-success btn-lg btn-block">Limits Speichern</button>
+        <!-- <button type="button" class="btn btn-outline-success btn-lg btn-block">Speichern</button>     -->
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col">
+        <h1 class="card-title">Telegram</h1>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="" scope="col">TelegramID</th>
+              <th class="" scope="col">Name</th>
+              <th class="" scope="col">Nachname</th>
+              <th class="" scope="col">Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let telegramUser of telegramArray">
+              <td class="">{{telegramUser?.telegramid}}</td>
+              <td class="">{{telegramUser?.name}}</td>
+              <td class="">{{telegramUser?.nachname}}</td>
+              <td class="">
+                <a type="button" style="color:#FE2E2E" (click)="onTelegramDelete(telegramUser)">
+                  <i class="fas fa-trash-alt fa-2x"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="">
+                <input type="text" [(ngModel)]="telegramid">
+              </td>
+              <td class="">
+                <input type="text" [(ngModel)]="name">
+              </td>
+              <td class="">
+                <input type="text" [(ngModel)]="nachname">
+              </td>
+              <td class="">
+                <a type="button" style="color:#76db2c" (click)="onTelegramAdd()">
+                  <i class="fas fa-plus-circle fa-2x"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Benachrichtungsservice -->
+    <div class="row" style="margin-top:20px">
+      <div class="col">
+        <h1 class="card-title">Benachrichtungsservice</h1>
+        <p>Um Benachrichtungen per Telegram zu erhalten, können sie den Benachrichtungsservice aktivieren.</p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="" scope="col">Service</th>
+              <th class="" scope="col">Aktiviert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Benachrichtung</td>
+
+              <td>
+                <div class="onoffswitch">
+                  <input [(ngModel)]="telegramStatus" (click)="setStatus()" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+                    id="myonoffswitch" checked>
+                  <label class="onoffswitch-label" for="myonoffswitch"></label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" (click)="saveTelegramStatus()" class="btn btn-raised btn-success btn-lg btn-block">Service Speichern</button>
+
+      </div>
+    </div>
+
+
   </div>
 </div>
