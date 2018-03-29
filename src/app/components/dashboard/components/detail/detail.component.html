@@ -11,47 +11,45 @@
 </div>
 <hr>
 <div class="row mx-auto">
-  <div class="col">
+  <div class="col-sm">
       <div class="card">
-          <circle-progress [percent]="infounit?.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#FF4000'"
-          [innerStrokeColor]="'#F78181'"></circle-progress>
+          <circle-progress [percent]="infounit?.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'Grad Celisius'" [outerStrokeColor]="'#FF4000'"
+          [innerStrokeColor]="'#F78181'" [showSubtitle]='false'></circle-progress>
       </div>
   </div>
-  <div class="col">
+  <div class="col-sm">
       <div class="card">
-          <circle-progress [percent]="infounit?.incline" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'incline'" [outerStrokeColor]="'#FF4000'"
-          [innerStrokeColor]="'#F78181'"></circle-progress>
+          <circle-progress [percent]="infounit?.incline" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'% Neigungsabweichung'" [outerStrokeColor]="'#000000'"
+          [innerStrokeColor]="'#76EEC6'" [showSubtitle]='false'></circle-progress>
       </div>
   </div>
-  <div class="col">
+  <div class="col-sm">
     <div class="card">
-      <circle-progress [percent]="infounit?.humidity" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'humidity'" [outerStrokeColor]="'#FF4000'"
-      [innerStrokeColor]="'#F78181'"></circle-progress>
+      <circle-progress [percent]="infounit?.humidity" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'% Luftfeuchtigkeit'" [outerStrokeColor]="'#FF4000'"
+      [innerStrokeColor]="'#FFA500'" [showSubtitle]='false'></circle-progress>
   </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <circle-progress [percent]="infounit?.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#000000'"
+  <div class="col-sm">
+    <div class="card mx-auto">
+      <circle-progress [percent]="infounit?.brightness" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#000000'"
       [innerStrokeColor]="'#2ECCFA'"[showSubtitle]='false' [innerStrokeColor]='black'></circle-progress>
   </div>
   </div>
 
 </div>
-<div class="row">
+<div class="row mx-auto">
   <div class="col">
-    <div class="card">
-        <circle-progress [percent]="node.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="colorCool"
-        [innerStrokeColor]="'#2ECCFA'" [showSubtitle]='false'></circle-progress>
+      <div class="card date" >
+        <h1>Datum & Uhrzeit</h1>
+         <h3>{{infounit?.date}}</h3>
+      </div>
+  </div>
+</div>
+<div class="row mx-auto">
+    <div class="col">
+        <div class="card position" >
+          <h1>Position im Gebäude</h1>
+           <h3>{{infounit?.position}}</h3>
+        </div>
     </div>
   </div>
-  <div class="col">
-    <input id="slider1" type="range" min="0" max="100" step="1" [(ngModel)]="value" />
-    <app-test [position]="value"></app-test>
-  </div>
-  <div class="col">
-  </div>
-  <div class="col">
-
-  </div>
-
-</div>
