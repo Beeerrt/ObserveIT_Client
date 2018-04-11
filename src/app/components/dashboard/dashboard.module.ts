@@ -8,7 +8,7 @@ import { ValuepanelComponent } from './components/valuepanel/valuepanel.componen
 import { DetailComponent } from './components/detail/detail.component';
 import { DashboardComponent} from '../dashboard/dashboard.component';
 import { SensordisplayComponent} from './components/detail/sensordisplay/sensordisplay.component';
-//import { NodeSettingComponent } from './components/node-setting/node-setting.component';
+
  
 @NgModule({
   imports: [
