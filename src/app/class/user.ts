@@ -4,8 +4,17 @@ export class user{
     email: String;
     password: String;
     isAdmin: boolean;
-
-    constructor(name?: String, username?: String, email?: String,
+    
+/**
+ * Creates an instance of user.
+ * @param {String} [name] 
+ * @param {String} [username] 
+ * @param {String} [email] 
+ * @param {String} [password] 
+ * @param {boolean} [isAdmin] 
+ * @memberof user
+ */
+constructor(name?: String, username?: String, email?: String,
     password?: String, isAdmin?: boolean){
 
         this.name = name  || "";

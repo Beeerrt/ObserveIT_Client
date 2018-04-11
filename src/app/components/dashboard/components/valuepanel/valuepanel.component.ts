@@ -9,7 +9,12 @@ import { ShareDataService } from '../../../../services/share-data.service';
 export class ValuepanelComponent implements OnInit {
   
   @Input() node;
-  id;
+
+  /**
+   * Creates an instance of ValuepanelComponent.
+   * @param {ShareDataService} shareddata 
+   * @memberof ValuepanelComponent
+   */
   constructor(
     private shareddata : ShareDataService
   ) { }

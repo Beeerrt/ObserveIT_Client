@@ -6,10 +6,14 @@ export class ValidateService {
   constructor() { }
 
 
-  //prüft ob User verwendbare Daten enthält
+  /**
+   * Überprüft ob übergebenes User Objekt valide ist
+   * @param user 
+   */
   valdidateRegister(user)
   {
-    if(user.name == undefined || user.email == undefined || user.username == undefined || user.password == undefined )
+    if(user.name == undefined || user.email == undefined || 
+      user.username == undefined || user.password == undefined )
     {
       return false;
     }
@@ -19,3 +23,4 @@ export class ValidateService {
     }
   }
 }
+

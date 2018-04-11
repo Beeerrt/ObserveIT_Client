@@ -14,15 +14,14 @@ export class DetailComponent implements OnInit {
   //Infounit deklarieren
   infounit : infounit;
 
-  //Testdata
-  radius = 100;
-  colorCool = '#848484';
-  innerStrokeColor = '#848484';
-  node = 
-  {
-    temperatur: 20    
-  }
-  constructor(
+/**
+ * Creates an instance of DetailComponent.
+ * @param {ActivatedRoute} route 
+ * @param {Router} router 
+ * @param {InfounitService} infounitService 
+ * @memberof DetailComponent
+ */
+constructor(
     private route: ActivatedRoute,
     private router: Router,
     private infounitService : InfounitService

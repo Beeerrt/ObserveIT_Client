@@ -16,8 +16,15 @@ export class RegisterComponent implements OnInit {
   email: String;
   password: String;
 
-
-  constructor(
+/**
+ * Creates an instance of RegisterComponent.
+ * @param {ValidateService} validateService 
+ * @param {AuthService} authService 
+ * @param {Router} router 
+ * @param {FlashMessagesService} flashMessage 
+ * @memberof RegisterComponent
+ */
+constructor(
     private validateService: ValidateService,
     private authService: AuthService,
     private router: Router,
@@ -30,9 +37,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  //Ausführen bei klick auf Submit
-  //Standard wird der User als nicht Admin angelegt
-  //Nur der AdminUser darf somit User anlegen
+  /**
+   * Registriert neuen User in der Datebank
+   */
   onRegisterSubmit(){
 
     const user = {
@@ -61,7 +68,7 @@ export class RegisterComponent implements OnInit {
       else
       {
         this.router.navigate(['/register']);
-        this.flashMessage.show('Unerwarteter Fehler!',{cssClass: 'alert-danger', timeout: 6000});
+        this.flashMessage.show(data.msg,{cssClass: 'alert-danger', timeout: 6000});
       }
     });
 

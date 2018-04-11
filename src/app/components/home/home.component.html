@@ -3,61 +3,43 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
         <h1 class="text-uppercase">
-            <div class="useravatar">
-                <img class="logo" alt="" src="../../../assets/home/Observeye.png">
-              </div>
+          <div class="useravatar">
+            <img class="logo" alt="" src="../../../assets/home/Observeye.png">
+          </div>
           <strong>Observe It</strong>
         </h1>
         <hr>
       </div>
       <div class="col-lg-8 mx-auto" style="margin-bottom: 150px;">
-        <p class="text-faded mb-5">Willkommen</p>
-        <a *ngIf="!authService.loggedIn()" class="btn btn-success btn-xl js-scroll-trigger btn-lg"  [routerLink]="['/login']"><i class="fas fa-sign-in-alt"></i> Anmelden</a>
+        <p class="text-faded mb-5">
+          <span>Herzlich Willkommen</span>
+        </p>
+        <a *ngIf="!authService.loggedIn()" class="btn btn-success btn-xl js-scroll-trigger btn-lg" [routerLink]="['/login']">
+          <i class="fas fa-sign-in-alt"></i> Anmelden</a>
       </div>
     </div>
-
-    <!-- <div class="row">
-      <div class="col-lg-6">
-          <img class="rounded-circle" src="../../../assets/profile/user.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Björn Geerken</h2>
-          <p></p>
-      </div>
-      <div class="col-lg-6">
-          <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Philip Hoffmann</h2>
-          <p></p>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col">
         <h1>Entwickler Team</h1>
       </div>
     </div>
     <hr class="featurette-divider">
-    
-        
-            <div class="row featurette" style="margin-bottom:50px">
-              <div class="col-md-7">
-                <h2 class="featurette-heading " style="color:#76db2c">Lead Developer 1</h2>
-                <p class="lead">Hallo</p>
-              </div>
-              <div class="col-md-5">
-                  <img class="rounded-circle" src="../../../assets/profile/user.png" alt="Generic placeholder image" width="200" height="200">
-                  <h2>Philip Hoffmann</h2>
-              </div>
-            </div>
-            <hr class="featurette-divider">
-            
-                    <div class="row featurette">
-                      <div class="col-md-7 order-md-2">
-                        <h2 class="featurette-heading" style="color:#76db2c">Lead Developer 2</h2>
-                        <p class="lead">Halloa</p>
-                      </div>
-                      <div class="col-md-5 order-md-1">
-                          <img class="rounded-circle" src="../../../assets/profile/user.png" alt="Generic placeholder image" width="200" height="200">
-                          <h2>Björn Geerken</h2>
-                      </div>
-                    </div>
+    <div class="row featurette">
+      <div class="col">
+        <h2 class="featurette-heading" style="color:#76db2c">Lead Developer 1</h2>
+        <p class="lead">Zuständig für C Controller Technik</p>
+        <img class="rounded-circle" src="../../../assets/profile/user.png" alt="Generic placeholder image" width="200" height="200">
+        <h2>Philip Hoffmann</h2>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col">
+        <h2 class="featurette-heading" style="color:#76db2c">Lead Developer 2</h2>
+        <p class="lead">Zuständig für Webservice und SPA</p>
+        <img class="rounded-circle" src="../../../assets/profile/user.png" alt="Generic placeholder image" width="200" height="200">
+        <h2>Björn Geerken</h2>
+      </div>
+    </div>
   </div>
 </header>
-

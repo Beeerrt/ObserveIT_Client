@@ -20,8 +20,6 @@ import { AuthGuard} from './guards/auth.guard';
 import { OnlyAdminGuard } from './guards/onlyAdmin.guard';
 
 const appRoutes: Routes = [
-    //{path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-    //{path:'detail', component: DetailComponent, canActivate:[AuthGuard]},
     {path:'register', component: RegisterComponent, canActivate:[AuthGuard,OnlyAdminGuard]},
     {path:'login', component: LoginComponent},
     {path: 'home', component: HomeComponent},
@@ -30,7 +28,6 @@ const appRoutes: Routes = [
     {path: 'setting', component: NodeSettingComponent, canActivate:[AuthGuard,OnlyAdminGuard]},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: '**', redirectTo: '/dashboard' }
- 
  ]
  
 

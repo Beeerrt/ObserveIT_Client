@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {user} from '../../class/user';
+import { TokenService } from '../../services/token.service';
 
 
 @Component({
@@ -14,16 +15,36 @@ export class NavbarComponent implements OnInit {
 
   user: user;
   localUser : user;
+  
+  /**
+   * Creates an instance of NavbarComponent.
+   * @param {AuthService} authService 
+   * @param {Router} router 
+   * @param {FlashMessagesService} flashMessage 
+   * @param {TokenService} tokenService 
+   * @memberof NavbarComponent
+   */
   constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessage: FlashMessagesService 
+    private flashMessage: FlashMessagesService,
+    private tokenService : TokenService
   ) { }
 
   ngOnInit() {
   }
-  
 
+  /**
+   *Löscht alle Daten des LocalStorage
+   */
+  resetStorage()
+  {
+    localStorage.clear();
+  }
+
+  /**
+   * Meldet den angemeldeten User ab
+   */
   onLogoutClick()
   {
     this.authService.logout();
@@ -31,14 +52,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login']);
     return false;
   }
-
-  isAdmin()
+/**
+ *Prüft ob angemeldeter User Adminrechte besitzt
+ */
+isAdmin()
   {
-  
     if(this.authService.loggedIn())
     {
        this.localUser = this.authService.getUserFromLocalStorage();
-      //console.log(this.user);
       if(this.localUser.isAdmin == false)
       {
         return false;
@@ -47,10 +68,7 @@ export class NavbarComponent implements OnInit {
       {
         return true;
       }
-      
-
     }
-    
-  }
 
+  }
 }

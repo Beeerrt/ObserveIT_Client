@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import { TokenService } from '../../services/token.service';
 
 
 @Component({
@@ -14,17 +15,29 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
 
-  constructor(
+/**
+ * Creates an instance of LoginComponent.
+ * @param {AuthService} authService 
+ * @param {Router} router 
+ * @param {FlashMessagesService} flashMessage 
+ * @param {TokenService} tokenService 
+ * @memberof LoginComponent
+ */
+constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessage: FlashMessagesService 
+    private flashMessage: FlashMessagesService,
+    private tokenService: TokenService
   ) { 
    
   }
 
   ngOnInit() {
   }
-
+  
+ /**
+  * Authentifiziert eingegebene Userdaten am Webservice
+  */
   onLoginSubmit()
   {
     const user = {

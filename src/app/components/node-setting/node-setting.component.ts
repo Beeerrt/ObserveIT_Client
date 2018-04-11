@@ -18,7 +18,19 @@ export class NodeSettingComponent implements OnInit {
   limits: limits;
   telegramArray = [];
   telegramStatus: boolean = true;
+  telegramid: String;
+  name: String;
+  nachname: String;
 
+  /**
+   * Creates an instance of NodeSettingComponent.
+   * @param {ActivatedRoute} route 
+   * @param {Router} router 
+   * @param {LimitService} limitService 
+   * @param {TelegramService} telegramService 
+   * @param {FlashMessagesService} flashMessage 
+   * @memberof NodeSettingComponent
+   */
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -28,16 +40,7 @@ export class NodeSettingComponent implements OnInit {
   ) { }
 
 
-
-  telegramid: String;
-  name: String;
-  nachname: String;
-
-
-   
-
   ngOnInit() {
-
     this.loadStatus();
 
     //initialisieren der Variablen
@@ -45,8 +48,7 @@ export class NodeSettingComponent implements OnInit {
     this.name = '';
     this.nachname = '';
 
-    //to Do
-    // //laden der Limits
+    //laden der Limits
     this.limitService.getLimits().subscribe(limits => {
       this.limits = limits[0];
     });
@@ -54,15 +56,12 @@ export class NodeSettingComponent implements OnInit {
     //laden der TelegramUser
     this.telegramService.getTelegramUsers().subscribe(telegramUsers => {
       this.telegramArray = telegramUsers;
-      // this.telegramArray.forEach(element =>{
-      //   console.log(element);
-      // })
-      // console.log(this.telegramArray[0]);
-
-
-
     })
   }
+
+  /**
+   * Fügt neuen Telegram Nutzer in der Datenbank hinzu
+   */
   onTelegramAdd() {
     var newTelegramUser = {
       telegramid: this.telegramid,
@@ -90,6 +89,11 @@ export class NodeSettingComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * Löscht übergebenen Telegram User in der Datenbank
+   * @param {any} telegramUser 
+   */
   onTelegramDelete(telegramUser) {
     //console.log(telegramid);
     this.telegramService.deleteTelegramUser(telegramUser.telegramid).subscribe(data => {
@@ -106,13 +110,18 @@ export class NodeSettingComponent implements OnInit {
     })
   }
 
+  /**
+   * Lädt den aktuellen Aktivierungsstatus des Benachrichtigung Service
+   */
   loadStatus(){
     this.telegramService.getStatus().subscribe(data => {
-      console.log(data[0].status);
       this.telegramStatus = data[0].status;
     })
   }
-
+  
+  /**
+  * Ändert den Aktivierungsstatus des Sliders für den Benachrichtigung Service
+  */
   setStatus(){
     if(this.telegramStatus){
       this.telegramStatus = false;
@@ -121,13 +130,13 @@ export class NodeSettingComponent implements OnInit {
     {
       this.telegramStatus = true;
     }
-    console.log(this.telegramStatus);
   }
 
+  /**
+   * Aktualisiert den Aktivierungsstatus für den Benachrichtigung Service
+   */
   saveTelegramStatus(){
-    console.log("saveStatus");
     this.telegramService.setStatus(this.telegramStatus).subscribe(data =>{
-       
       if (data.success) {
         this.flashMessage.show(data.msg, { cssClass: 'alert-success', timeout: 5000 });
       }
@@ -137,6 +146,9 @@ export class NodeSettingComponent implements OnInit {
     })
   }
 
+  /**
+   * Speichert die Limits in er Datenbank ab
+   */
   saveLimits(){
     this.limitService.setLimits(this.limits).subscribe(data =>{
        

@@ -8,9 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProfileModule } from '../app/components/profile/profile.module';
 import { DashboardModule } from '../app/components/dashboard/dashboard.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { SharedModule } from '../app/shared/shared.module'
 
-//import { PasswordStrengthBarComponent  } from 'ng2-password-strength-bar';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -26,6 +24,7 @@ import {ShareDataService  } from './services/share-data.service';
 import {InfounitService} from './services/infounit.service';
 import {LimitService} from './services/limit.service';
 import {TelegramService} from './services/telegram.service';
+import {TokenService} from './services/token.service'
 import { ValuepanelComponent } from './components/dashboard/components/valuepanel/valuepanel.component';
 import { AuthGuard} from './guards/auth.guard';
 import { OnlyAdminGuard } from './guards/onlyAdmin.guard';
@@ -62,7 +61,7 @@ import {NodeSettingComponent} from './components/node-setting/node-setting.compo
       innerStrokeWidth: 8,
       animationDuration: 300,
     }),
-    SharedModule
+
   ],
   providers: [
     ValidateService,
@@ -72,7 +71,8 @@ import {NodeSettingComponent} from './components/node-setting/node-setting.compo
     OnlyAdminGuard,
     InfounitService,
     LimitService,
-    TelegramService
+    TelegramService,
+    TokenService
   ],
   bootstrap: [AppComponent]
 })

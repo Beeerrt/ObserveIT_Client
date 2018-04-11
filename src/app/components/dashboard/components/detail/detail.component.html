@@ -11,6 +11,14 @@
 </div>
 <hr>
 <div class="row mx-auto">
+  <div class="col">
+      <div class="card date" >
+        <h1><i class="fas fa-clock"></i> Datum & Uhrzeit</h1>
+         <h3>{{infounit?.date}}</h3>
+      </div>
+  </div>
+  </div>
+<div class="row mx-auto">
   <div class="col-sm">
       <div class="card">
           <circle-progress [percent]="infounit?.temperatur" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'Grad Celisius'" [outerStrokeColor]="'#FF4000'"
@@ -31,7 +39,7 @@
   </div>
   <div class="col-sm">
     <div class="card mx-auto">
-      <circle-progress [percent]="infounit?.brightness" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'C'" [outerStrokeColor]="'#000000'"
+      <circle-progress [percent]="infounit?.brightness" [radius]="radius" [animation]='true' [animationDuration]="1000" [units]="'Lumen'" [outerStrokeColor]="'#000000'"
       [innerStrokeColor]="'#2ECCFA'"[showSubtitle]='false' [innerStrokeColor]='black'></circle-progress>
   </div>
   </div>
@@ -40,16 +48,14 @@
 <div class="row mx-auto">
   <div class="col">
       <div class="card date" >
-        <h1>Datum & Uhrzeit</h1>
-         <h3>{{infounit?.date}}</h3>
+        <h1><i class="fas fa-battery-three-quarters"></i></h1>
+         <h3>{{infounit?.level}} %</h3>
       </div>
   </div>
-</div>
-<div class="row mx-auto">
-    <div class="col">
-        <div class="card position" >
-          <h1>Position im Gebäude</h1>
-           <h3>{{infounit?.position}}</h3>
-        </div>
+  <div class="col">
+    <div class="card position" >
+      <h1><i class="fas fa-map-marker-alt"></i></h1>
+       <h3>{{infounit?.position}}</h3>
     </div>
-  </div>
+</div>
+</div>

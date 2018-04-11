@@ -7,8 +7,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(
+/**
+ * Creates an instance of HomeComponent.
+ * @param {AuthService} authService 
+ * @memberof HomeComponent
+ */
+constructor(
     private authService: AuthService
   ) { }
 

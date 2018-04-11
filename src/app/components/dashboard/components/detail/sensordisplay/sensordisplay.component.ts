@@ -10,24 +10,22 @@ export class SensordisplayComponent implements OnInit {
 
   @Input() node;
 
-  unit;
-
-  constructor(
+  
+/**
+ * Creates an instance of SensordisplayComponent.
+ * @param {ShareDataService} shareddata 
+ * @memberof SensordisplayComponent
+ */
+constructor(
     private shareddata : ShareDataService
   ) { }
 
   ngOnInit( ) {
     if(this.node == null)
     {
-      console.log(this.shareddata);
       this.node = this.shareddata.data
 
     }
-    else
-    {
-      console.log(this.node);
-    }
-    
   }
 
 }

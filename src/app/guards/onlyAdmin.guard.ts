@@ -6,22 +6,31 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Injectable()
 export class OnlyAdminGuard implements CanActivate { 
+  
+  /**
+   * Creates an instance of OnlyAdminGuard.
+   * @param {AuthService} authService 
+   * @param {Router} router 
+   * @param {FlashMessagesService} flashMessage 
+   * @memberof OnlyAdminGuard
+   */
   constructor(
     private authService:AuthService,
     private router:Router,
     private flashMessage:FlashMessagesService
   ) {}; 
 
-  canActivate() {
-    console.log("Only Admin User");
+ /**
+ * Überprüft ob angemeldeter User Adminrechte besitzt
+ * @returns boolean
+ */
+canActivate() {
     var user : user;
     user = this.authService.getUserFromLocalStorage();
 
     if (user.isAdmin == true) { 
       return true;
     } else {
-      console.log("Ist kein Admin")
-      
       this.flashMessage.show('Sie besitzen keine Berechtigung um diese Route aufzurufen', {cssClass: 'alert-danger', timout: 5000});
       this.router.navigate(['/home']);
       return false;

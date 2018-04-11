@@ -22,7 +22,8 @@
       <form class="form-inline my-2 my-lg-0">
        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
          <li *ngIf="!authService.loggedIn()" class="nav-item">
-            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']"><i class="fas fa-sign-in-alt"></i> Login</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="resetStorage()" [routerLink]="['/login']">
+              <i class="fas fa-sign-in-alt"></i> Login</button>
         </li>
         <li *ngIf="authService.loggedIn()" class="nav-item">
           <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onLogoutClick()"><i class="fas fa-sign-out-alt"></i> Abmelden</button>
